@@ -1,1 +1,152 @@
-!11
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../uigod.js"></script>
+    <link rel="stylesheet" href="../uigod.css">
+    <style>
+        
+    </style> 
+    </head>
+<body>
+    <div class="l-scr">
+        <img class="" src="../logo1.png" alt="new age design logo" srcset="../logo1.png">
+        <b>New Age Design TZ<br>Design | Create | Become</b>
+        <div class="loader-c">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div> 
+        </div>
+    </div>
+    <ul class="tips">
+        
+    </ul> 
+    <script>
+        function load(){
+            setTimeout(() => {
+                let lscr = document.querySelector('.l-scr');
+                
+                lscr.style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.l-scr').style.display = 'none';
+                }, 1000);
+            }, 3000);
+
+            setTimeout(() => {
+                let tipscontainer = document.querySelector('.tips');
+                tipscontainer.innerHTML = `
+                    <li>
+                        <h2>Discover & Connect</h2>
+                        <p>Explore our diverse community, find friends, and stay connected. Share moments and engage in conversations no matter where you are.</p>
+                    </li>
+                    <li>
+                        <h2>Join & Engage</h2>
+                        <p>Participate in groups that match your interests. Engage in discussions, like, comment, and share posts that resonate with you.</p>
+                    </li>
+                    <li>
+                        <h2>Share Your Life</h2>
+                        <p>Post photos, videos, and updates. Express yourself and let your friends and followers be part of your journey.</p>
+                    </li>
+                    <li>
+                        <h2>Privacy & Customization</h2>
+                        <p>Your privacy matters. Control who sees your content with customizable privacy settings. Make your profile truly yours.</p>
+                    </li>
+                    <li>
+                        <h2>Notifications & Messages</h2>
+                        <p>Stay updated with what's happening in your network. Our notifications ensure you don't miss any important updates or messages.</p>
+                    </li>
+                    <li>
+                        <h2>Get Started</h2>
+                        <p>Ready to dive in? Sign up now or log in to continue your journey. Welcome to our community!</p>
+                    </li>
+                    <div class="controllers">
+                        <button><</button>
+                        <button>></button>
+                    </div>  
+                `;
+                let tips = document.querySelectorAll('.tips li');
+                let tipsLength = tips.length;
+                let back = document.querySelector('.controllers button:first-child');
+                let next = document.querySelector('.controllers button:last-child');
+                tipscontainer.style.display = 'flex';
+
+                let i = 0;
+                back.style.display = 'none';
+                span = document.createElement('span');
+                tips[i].classList.add('active');
+                
+                back.addEventListener('click', () => {
+                    if (i > 0) { // Check that i is not below 0
+                        tips[i].classList.remove('active');
+                        i--;
+                        tips[i].style.opacity = '0'; // Set opacity to '0' before adding 'active' class
+                        tips[i].classList.add('active');
+                        setTimeout(() => { // Gradually increase opacity to '1'
+                            tips[i].style.opacity = '1';
+                        }, 500);
+                        if(i === 0){
+                            back.style.display = 'none';
+                        }
+                        next.style.display = 'flex';
+                    }
+                });
+
+                next.addEventListener('click', () => {
+                    if (i < tipsLength - 1) { // Check that i is not above tipsLength - 1
+
+                        tips[i].classList.remove('active');
+                        i++;
+                        tips[i].style.opacity = '0'; // Set opacity to '0' before adding 'active' class
+                        tips[i].classList.add('active');
+                        setTimeout(() => { // Gradually increase opacity to '1'
+                            tips[i].style.opacity = '1';
+                        }, 500);
+                        if(i === tipsLength - 1){
+                            next.style.display = 'none';
+                        }
+                        back.style.display = 'flex';
+                    }
+                });
+                if(tips[0].classList.contains('active')){
+                        next.parentNode.insertBefore(span, next);
+                    } else if (span.parentNode) {
+                        span.remove();
+                }
+
+                function createRipple(event) {
+                    const button = event.currentTarget;
+                    
+                    const circle = document.createElement("span");
+                    const diameter = Math.max(button.clientWidth, button.clientHeight);
+                    const radius = diameter / 2;
+                    
+                    circle.style.width = circle.style.height = `${diameter}px`;
+                    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+                    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+                    circle.classList.add("ripple");
+                    
+                    const ripple = button.getElementsByClassName("ripple")[0];
+                    
+                    if (ripple) {
+                        ripple.remove();
+                    }
+                    
+                    button.appendChild(circle);
+                }
+
+                const buttons = document.querySelectorAll("button");
+                buttons.forEach(button => button.addEventListener('click', createRipple));
+
+                tips[i].classList.add('active');
+                setTimeout(() => {
+                    tips[i].style.opacity = '1'; 
+                }, 500);
+            }, 4000);
+        }
+        load();
+    </script>
+</body>
+</html>
