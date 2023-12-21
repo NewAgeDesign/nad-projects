@@ -1,0 +1,691 @@
+:root{
+    --primary: #1b212b;
+    --secondary: #3d454f;
+    --tertiary: rgb(241, 173, 44);
+    --quartenary: #f2f2f2;
+}
+input[type="search"]::-webkit-search-results-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration{
+    display: none;
+}
+/* This code clears the ‘X’ from Internet Explorer */
+input[type="search"]::-ms-reveal,input[type="search"]::-ms-clear
+{
+    display: none;
+    height: 0;
+    width: 0;
+}
+details summary::-webkit-details-marker {display: none;}
+::-webkit-scrollbar {display: none;}
+::-webkit-scrollbar-track {display: none;}
+::-webkit-scrollbar-thumb {display: none;}
+::-webkit-scrollbar-button {display: none;}
+::-webkit-scrollbar-corner {display: none;}
+::-webkit-scrollbar-track-piece {display: none;}
+::-webkit-scrollbar-corner {display: none;}
+::-webkit-scrollbar {
+    transition: opacity 0.2s;
+    width: 0.5rem;
+    opacity: 0;
+}
+::-webkit-scrollbar:hover {
+    opacity: 0.8;
+}
+::-webkit-scrollbar-track {
+    background: #aa41e700;
+}
+::-webkit-scrollbar-thumb:vertical {
+    background-color: #888;
+    transition: opacity 0.2s;
+    opacity: 0.8;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--tertiary); 
+}
+/* Hide the scrollbar by default */
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+::-webkit-scrollbar {
+    transition: opacity 0.2s;
+    display: none;
+    width: 0.5rem;
+    opacity: 0;
+  }
+  
+  /* Show the scrollbar when hovering over it */
+  ::-webkit-scrollbar:hover {
+    opacity: 0.8;
+  }
+  
+  /* Show the scrollbar when scrolling */
+  ::-webkit-scrollbar-thumb:vertical {
+    background-color: #88888800;
+    transition: opacity 0.2s;
+    opacity: 0.8;
+  }
+  
+  /* Hide the scrollbar thumb when not hovering or scrolling */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--tertiary);
+    opacity: 0;
+  }
+  
+  /* Show the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background-color: var(--primary);
+  }
+  
+*,
+*::before,
+*::after{
+    /*-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;*/
+    
+    transition: all .2s ease-in-out;
+    color: var(--quartenary);
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    letter-spacing: -.15pt;
+    font-family: 'Poppins';
+    user-select: none;
+    line-height: 16pt;
+    list-style: none;
+    text-align: left;
+    font-size: 13pt; 
+    outline: none;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+body{
+    background-color: var(--primary); 
+}
+small{
+    font-size: 10pt;
+}
+sub,sup{
+    font-size: 8pt;
+}
+body > *{
+    padding: 0 18pt;
+}
+body > header > img{
+    margin: 10pt 0;
+    height: 22pt;
+}
+header{
+    border-bottom: 2px solid #cacaca ;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    position: relative;
+    min-height: 44pt;
+    position: fixed;
+    padding: 0 18pt;
+    display: flex;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+header nav {
+    flex-direction: row;
+    display: flex;
+}
+
+header nav > menu {
+    background-color: #f4f4f4;
+    height: calc(100% - 44pt);
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 18pt 18pt;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    left: -100%;
+    top: 44pt;
+}
+header nav > menu * {
+    line-height: 44pt;
+    font-size: 22pt;
+}
+header nav > menu *:hover {
+    color: rgb(13, 163, 25);
+    font-weight: 700;
+}
+header nav > menu *:last-child {
+    align-items: center;
+    line-height: 44pt;
+    font-size: 22pt;
+    display: flex;
+}
+header nav > menu *:last-child * {
+    margin-left: 10pt;
+}
+nav #ham{
+    display: none;
+}
+nav label[for="ham"]{
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    height: 22pt;
+    width: 22pt;
+}
+nav label[for="ham"] span{
+    background-color: #333;
+    border-radius: 2pt;
+    display: block;
+    height: 1.5pt;
+    content: '';
+    width: 60%;
+}
+label[for="ham"] span::before,
+label[for="ham"] span::after{
+    background-color: #333;
+    border-radius: 2pt;
+    position: absolute;
+    display: block;
+    height: 1.5pt;
+    content: '';
+    width: 60%;
+}
+label[for="ham"] span::before{
+    transform: translateY(-4pt);
+}
+label[for="ham"] span::after{
+    transform: translateY(4pt);
+}
+header nav input[type="checkbox"]:checked ~ menu {
+    left: 0;
+}
+header nav input[type="checkbox"]:checked ~ label[for="ham"] > span {
+    background-color: transparent;
+}
+
+header nav input[type="checkbox"]:checked ~ label[for="ham"] > span::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+header nav input[type="checkbox"]:checked ~ label[for="ham"] > span::after {
+    transform: translateY(0) rotate(-45deg);
+}
+body > main{
+    padding: 0;
+}
+main{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    display: flex;
+    width: 100%;
+}
+.l-scr{
+    transition: all 1s ease-in-out;
+    background-color: var(--primary);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    left: 0;
+    top: 0;
+}
+.l-scr img{
+    height: 80px;
+    margin: 10px;
+}
+.l-scr b{
+    color: rgb(141, 141, 141);
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+.loader-c {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 13px;
+}
+.loader-c div {
+    position: absolute;
+    top: 0px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(141, 141, 141);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader-c div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.loader-c div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.loader-c div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.loader-c div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+    0% {
+    transform: scale(0);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+    transform: scale(1);
+    }
+    100% {
+    transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+    transform: translate(0, 0);
+    }
+    100% {
+    transform: translate(24px, 0);
+    }
+}
+span{
+    display: inline-block;
+}
+main .sponsors{
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 18pt;
+    width: 100%;
+}
+main .sponsors li{
+    margin: 10pt;
+    font-size: 22pt;
+    height: 22pt;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+    color: var(--tertiary);
+    line-height: normal;
+    width: fit-content;
+    font-weight: 600;
+}
+h1{
+    letter-spacing: -1.6pt;
+    line-height: 55pt;
+    font-weight: 800;
+    font-size: 44pt;
+}
+h2{
+    letter-spacing: -1.2pt;
+    line-height: 44pt;
+    font-weight: 700;
+    font-size: 36pt;
+}
+h3{
+    letter-spacing: -1pt;
+    line-height: 38pt;
+    font-weight: 700;
+    font-size: 29.5pt;
+}
+h4{
+    letter-spacing: -.8pt;
+    font-size: 24.5pt;
+}
+h5{
+    letter-spacing: -.4pt;
+    font-size: 20pt;
+}
+h6{
+    letter-spacing: 0pt;
+    font-size: 16pt;
+}
+p{
+    margin-top: 18pt;
+    text-align: left;
+    text-wrap: wrap;
+}header img{
+    border-radius: 50%;
+}
+.tips{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    list-style: none;
+    height: 100dvh;
+    display: none;
+    width: 100dvw;
+    padding: 18pt;
+    margin: 0;
+}
+.tips li{
+    display: none;
+    opacity: 0;
+}
+.tips .active{
+    display: block;
+}
+.controllers{
+    justify-content: space-between;
+    position: absolute;
+    display: flex;
+    padding: 18pt;
+    bottom: 22pt;
+    width: 100%;
+}
+.controllers button{
+    background-color: var(--secondary);
+    transform: translate3d(0, 0, 0);
+    justify-content: center;
+    color: var(--primary);
+    border-radius: 50pt;
+    align-items: center;
+    position: relative;
+    font-weight: 600;
+    overflow: hidden;
+    font-size: 18pt;
+    cursor: pointer;
+    display: flex;
+    border: none;
+    height: 26pt;
+    width: 26pt;
+}
+.ripple {
+    animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) forwards;
+    background-color: #FED053;
+    border-radius: 50pt;
+    position: absolute;
+    height: 1px;
+    width: 1px;
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(50);
+        opacity: 0;
+    }
+}
+@media screen and (min-width:426px) { 
+    header nav > menu{
+        padding: 18pt 36pt;
+    }
+    body > *{
+        padding: 0 36pt;
+    }
+    *{
+        letter-spacing: 0pt;
+        line-height: 18pt;
+        font-size: 14pt;
+    }
+    small{
+        font-size: 10.5pt;
+    }
+    h1,h2,h3,h4,h5,h6,b,strong{
+        line-height: normal;
+        font-weight: 600;
+    }
+    h1{
+        letter-spacing: -1.6pt;
+        line-height: 72pt;
+        font-weight: 800;
+        font-size: 56pt;
+    }
+    h2{
+        letter-spacing: -1.2pt;
+        line-height: 56pt;
+        font-weight: 700;
+        font-size: 46pt;
+    }
+    h3{
+        letter-spacing: -1pt;
+        line-height: 46pt;
+        font-weight: 700;
+        font-size: 36.5pt;
+    }
+    h4{
+        letter-spacing: -.8pt;
+        font-size: 30pt;
+    }
+    h5{
+        letter-spacing: -.4pt; 
+        font-size: 24pt;
+    }
+    h6{
+        letter-spacing: 0pt;
+        font-size: 19pt;
+    }
+    .normal{
+        padding: 36pt;
+    }
+    .normal2{
+        flex-direction: column;
+        text-align: center;
+        padding: 36pt;
+        display: flex;
+        width: 100%;
+    }
+    .sect3{
+        background-color: #f2f2f2;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 36pt 36pt;
+        flex-wrap: wrap;
+        display: flex;
+        width: 100%;
+    }
+    .twoside{
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        display: flex;
+        padding: 36pt;
+        width: 100%;
+    }
+    .twoside > *{
+        padding-right: 18pt;
+        text-align: left;
+        width: 50%;
+    }
+    main .sponsors{
+        padding: 36pt;
+    }
+    footer{
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 36pt;
+        display: flex;
+        width: 100%;
+    }
+}
+@media screen and (min-width:718px) {   
+    .normal{
+        padding: 72pt;
+    }
+    .normal2{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 72pt;
+        display: flex;
+        width: 100%;
+    }
+    .hero li > img,
+    .bottom li > img{
+        object-position: center;
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top: 0;
+    }
+    *{
+        letter-spacing: .2pt;
+        line-height: 20pt;
+    }
+    header nav{
+        background-color: red;
+        flex-direction: row;
+        align-items: center;
+    }
+    header nav > menu{
+        justify-content: flex-end;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        text-align: right;
+        padding: 0;
+        left: auto;
+        top: auto;
+    }
+    header nav > menu *{
+        line-height: normal;
+        margin-left: 10pt;
+        font-size: 10pt;
+    }
+    header nav > menu > li:last-child{
+        justify-content: left;
+        flex-direction: row;
+        align-items: center;
+        display: flex;
+    }
+    nav label[for="ham"] {
+        display: none;
+    }
+    body > *{
+        padding: 0 72pt;
+    }
+    small{
+        font-size: 11pt;
+    }
+    h1,h2,h3,h4,h5,h6,b,strong{
+        line-height: normal;
+        font-weight: 600;
+    }
+    h1{
+        letter-spacing: -1.6pt;
+        line-height: 96pt;
+        font-weight: 800;
+        font-size: 74pt;
+    }
+    h2{
+        letter-spacing: -1.2pt;
+        line-height: 80pt;
+        font-weight: 700;
+        font-size: 62pt;
+    }
+    h3{
+        letter-spacing: -1pt;
+        line-height: 66pt;
+        font-weight: 700;
+        font-size: 52pt;
+    }
+    h4{
+        letter-spacing: -.8pt;
+        font-size: 44pt;
+    }
+    h5{
+        letter-spacing: -.4pt; 
+        font-size: 36pt;
+    }
+    h6{
+        letter-spacing: 0pt;
+        font-size: 29.5pt;
+    }
+    
+    .sect1{
+        flex-direction: row;
+        align-items: center;
+        padding: 18pt 72pt;
+        flex-wrap: wrap;
+        display: flex;
+        width: 100%;
+    }
+    .title{
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+    }
+    .sect1 section .title *{
+        margin-bottom: 9pt;
+        text-align: left;
+        font-size: 10pt;
+    }
+    .sect1 section *{
+        text-align: center;
+        font-size: 12pt;
+    }
+   .sect1 section{
+        flex-direction: column;
+        align-items: center;
+        margin: 0 9pt 9pt 0;
+        border-radius: 8pt;
+        max-width: 250pt;
+        display: flex;
+        padding: 18pt;
+        width: 100%;
+    }
+    .sect1 section svg{
+        position: relative;
+        margin: 16pt 16pt;
+        top: -6pt;
+    }
+    .sect3{
+        background-color: #f2f2f2;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 72pt 72pt;
+        flex-wrap: wrap;
+        display: flex;
+        width: 100%;
+    }
+    .twoside{
+        padding: 72pt;
+    }
+    main .sponsors{
+        padding: 72pt;
+    }
+    footer{
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 72pt;
+        display: flex;
+        width: 100%;
+    }
+}
